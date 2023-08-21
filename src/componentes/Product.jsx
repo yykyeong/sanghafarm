@@ -1,3 +1,13 @@
+
+import { useEffect, useRef } from "react";
+
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
+
+
+
 import prd01 from "../assets/images/prd01.png"
 import prd02 from "../assets/images/prd02.png"
 import prd03 from "../assets/images/prd03.png"
@@ -77,15 +87,47 @@ const prdInfo = [
 
 function Product () {
 
+  const horizontalRef = useRef(null);
+  const sectionsRef = useRef([]);
+
+  useEffect(()=> {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const horizontal = horizontalRef.current;
+    const sections = sectionsRef.current;
+
+    let scrollTween = gsap.to(sections, {
+      xPercent: -120 * (sections.length - 1),
+      ease: "none",
+      scrollTrigger: {
+      trigger: horizontal,
+      start: "top 56px",
+      end: () => "+=" + horizontal.offsetWidth,
+      pin: true,
+      scrub: 1,
+      invalidateOnRefresh: true,
+      anticipatePin: 1,
+      }
+    })
+
+    return ()=> {
+      scrollTween.kill();
+    }
+  })
+
   return (
-    <section id="product">
+    <section id="product" ref={horizontalRef}>
       <div className="prd-area">
         <h2 className="prd-title">제품 소개</h2>
         <ul className="prd-list">
           {prdInfo.map((prd,key)=> (
-            <li className={`prd-item p${key+1}`} key={key}>
+            <li 
+            className={`prd-item p${key+1}`} 
+            key={key}
+            ref={(el) => (sectionsRef.current[key] = el)}
+            >
               <span className={`prd-label ${prd.cat}`}>{prd.label}</span>
-              <a href="#" className="prd-img" rel="noreferrer">
+              <a href="/" className="prd-img" rel="noreferrer">
                 <img src={prd.img} alt={prd.title} />
               </a>
               <span className="sub-title">{prd.sub}</span>
