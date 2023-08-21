@@ -38,7 +38,7 @@ function Header () {
           <ul>
             {headerNav.map((nav,key)=>(
               <li key={key}>
-                <a href="{nav.url">{nav.title}</a>
+                <a href={nav.url}>{nav.title}</a>
               </li>
             ))}
           </ul>

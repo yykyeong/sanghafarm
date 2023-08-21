@@ -1,9 +1,9 @@
-.skill-area {
+.rule-area {
   padding: 16px;
   display: flex;
   justify-content: space-between;
 
-  .skill-title {
+  .rule-title {
     position: sticky;
     top: 70px;
     left: 0;
@@ -15,7 +15,7 @@
     border-bottom: .4vw solid $black;
   }
 
-  .skill-desc {
+  .rule-desc {
     width: 50%;
 
     span {

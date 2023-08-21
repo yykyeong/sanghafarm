@@ -2,10 +2,10 @@
 function Rule () {
 
   return (
-    <section id="skill">
-      <div className="skill-area">
-        <h2 className="skill-title">상하목장의 원칙</h2>
-        <div className="skill-desc">
+    <section id="rule">
+      <div className="rule-area">
+        <h2 className="rule-title">상하목장의 원칙</h2>
+        <div className="rule-desc">
           <div>
             <span>1.</span>
             <h3>청정한 자연</h3>
