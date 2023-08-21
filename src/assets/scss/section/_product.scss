@@ -1,0 +1,94 @@
+#product {
+  margin-top: 30vh;
+  overflow: hidden;
+  background: url("/assets/images/prdbg.jpg") no-repeat 0px 5vw;
+}
+
+.prd-area {
+  padding: 16px;
+
+  .prd-title {
+    height: 5vw;
+    font-size: 4vw;
+    font-weight: 900;
+    line-height: 1.6;
+    border-bottom: .4vw solid $black;
+    margin-bottom: 16px;
+  }
+
+  .prd-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 5000px;
+
+
+    .prd-item {
+      width: 450px;
+      height: 70vh;
+      padding: 2.5rem;
+      margin-right: 20px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      .prd-label {
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        text-align: center;
+        display: block;
+        font-weight: 600;
+        color: $white;
+
+        &.milk {
+          background-color: $brown;
+        }
+        &.fermented {
+          background-color: $orange;
+        }
+        &.baby {
+          background-color: $mint;
+        }
+        &.butter {
+          background-color: $red;
+        }
+      }
+      .prd-img {
+        display: block;
+        text-align: center;
+        margin-top: -20px;
+        transition: .3s;
+
+        img {
+          width: 260px;
+          filter: saturate(0%);
+        }
+
+        &:hover {
+          margin-top :0;
+          background-color: transparent;
+
+          img {
+            filter: saturate(100%);
+          }
+        }
+      }
+
+      .sub-title {
+        display: inline-block;
+        padding: .8rem 0 .3rem;
+      }
+      .title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        padding-bottom: .8rem;
+        border-bottom: 2px solid $black;
+        margin-bottom: 1rem;
+      }
+      .desc {
+      }
+    }
+  } 
+}
